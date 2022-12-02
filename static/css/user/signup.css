@@ -1,0 +1,94 @@
+/**********************************************************
+*
+* Notetaker - A Simple Note Taking app created in Flask
+* Copyright(C) 2022 - 2023 Prathamesh Thorat (thoratprathamesh08@gmail.com)
+*
+* This software is provided 'as-is', without any express or implied warranty.
+* In no event will the authors be held liable for any damages arising from the use of this software.
+*
+* Permission is granted to anyone to use this software for any purpose,
+* including commercial applications, and to alter it and redistribute it freely,
+* subject to the following restrictions:
+*
+* 1. The origin of this software must not be misrepresented
+* you must not claim that you wrote the original software.
+* If you use this software in a product, an acknowledgment
+* in the product documentation would be appreciated but is not required.
+*
+* 2. Altered source versions must be plainly marked as such,
+* and must not be misrepresented as being the original software.
+*
+* 3. This notice may not be removed or altered from any source distribution.
+*
+***********************************************************/
+
+#container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 25px;
+}
+
+form {
+  flex-direction: column;
+  background-color: var(--primary-h);
+  box-shadow: 0 0 10px #000;
+  border-radius: 10px;
+  height: max-content;
+  padding: 15px 20px;
+  margin-top: 15px;
+}
+
+form input {
+  margin: 7px 0;
+  padding: 7px 10px;
+  font-weight: 500;
+  width: min(80vw, 350px);
+  border-radius: 5px;
+  border: 3px solid var(--text);
+  background-color: var(--text);
+  color: var(--primary);
+}
+
+form input.wrong {
+  border-color: #ff3939;
+}
+
+form input:not([type="submit"]):not([class="wrong"]):focus {
+  border-color: #297fff;
+}
+
+form #submit {
+  margin: 15px 0;
+  width: 50%;
+  color: var(--primary);
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  font-size: 15px;
+}
+
+form #submit:hover {
+  color: var(--secondary);
+  background-color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--secondary);
+}
+
+.error {
+  padding: 15px 0;
+  font-size: medium;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  color: var(--text);
+}
+
+#login {
+  padding: 10px 0;
+  font-size: small;
+  color: var(--text);
+}
+
+#login a {
+  font-weight: bolder;
+  color: #00bfff;
+}

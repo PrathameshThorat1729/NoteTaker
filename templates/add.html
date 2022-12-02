@@ -1,0 +1,67 @@
+<!-----------------------------------------------------------
+-
+- Notetaker - A Simple Note Taking app created in Flask
+- Copyright(C) 2022 - 2023 Prathamesh Thorat (thoratprathamesh08@gmail.com)
+-
+- This software is provided 'as-is', without any express or implied warranty.
+- In no event will the authors be held liable for any damages arising from the use of this software.
+-
+- Permission is granted to anyone to use this software for any purpose,
+- including commercial applications, and to alter it and redistribute it freely,
+- subject to the following restrictions:
+-
+- 1. The origin of this software must not be misrepresented
+- you must not claim that you wrote the original software.
+- If you use this software in a product, an acknowledgment
+- in the product documentation would be appreciated but is not required.
+-
+- 2. Altered source versions must be plainly marked as such,
+- and must not be misrepresented as being the original software.
+-
+- 3. This notice may not be removed or altered from any source distribution.
+-
+------------------------------------------------------------->
+
+{% extends 'base.html' %} <br />
+{% block title %} {% if not id %}Add{% else %}Edit{% endif %} {% endblock title
+%} <br />
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='/css/add.css') }}"
+/>
+<script
+  src="{{ url_for('static', filename='js/uuidv1.min.js') }}"
+  defer
+></script>
+<script>
+  if ("{{id}}" != "") {
+    window.state = "edit";
+    window.id = "{{id}}";
+  } else window.state = "add";
+</script>
+<script src="{{ url_for('static', filename='js/add.js') }}"></script>
+<script src="{{ url_for('static', filename='js/NotesLocal.js') }}"></script>
+{% endblock head %} <br />
+{% block body %}
+<div id="form" class="flex">
+  <input
+    type="text"
+    name="title"
+    id="title"
+    required
+    placeholder="Enter Note Tite ..."
+  />
+  <textarea
+    name="body"
+    id="body"
+    required
+    placeholder="Enter Note ..."
+  ></textarea>
+  <input
+    type="submit"
+    value="{% if not id %}Add{% else %}Set{% endif %} Note  &RightAngleBracket;"
+    id="add"
+  />
+</div>
+{% endblock body %}

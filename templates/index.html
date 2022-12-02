@@ -1,0 +1,82 @@
+<!-----------------------------------------------------------
+-
+- Notetaker - A Simple Note Taking app created in Flask
+- Copyright(C) 2022 - 2023 Prathamesh Thorat (thoratprathamesh08@gmail.com)
+-
+- This software is provided 'as-is', without any express or implied warranty.
+- In no event will the authors be held liable for any damages arising from the use of this software.
+-
+- Permission is granted to anyone to use this software for any purpose,
+- including commercial applications, and to alter it and redistribute it freely,
+- subject to the following restrictions:
+-
+- 1. The origin of this software must not be misrepresented
+- you must not claim that you wrote the original software.
+- If you use this software in a product, an acknowledgment
+- in the product documentation would be appreciated but is not required.
+-
+- 2. Altered source versions must be plainly marked as such,
+- and must not be misrepresented as being the original software.
+-
+- 3. This notice may not be removed or altered from any source distribution.
+-
+------------------------------------------------------------->
+
+{% extends 'base.html' %} <br />
+{% block title %} Notes {% endblock title %} <br />
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+<script
+  src="{{ url_for('static', filename='js/uuidv1.min.js') }}"
+  defer
+></script>
+<script defer src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script
+  defer
+  src="{{ url_for('static', filename='js/NotesLocal.js') }}"
+></script>
+{% endblock head %} <br />
+{% block body %}
+<template id="temp">
+  <div class="note">
+    <div class="title"></div>
+    <pre class="body"></pre>
+    <div class="edit flex">
+      <svg viewBox="0 0 16 16">
+        <path
+          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+        />
+        <path
+          fill-rule="evenodd"
+          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+        />
+      </svg>
+    </div>
+    <div class="delete flex">
+      <svg viewBox="0 0 16 16">
+        <path
+          d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z"
+        />
+      </svg>
+    </div>
+    <div class="close flex">
+      <svg viewBox="0 0 16 16">
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+    </div>
+  </div>
+</template>
+<div class="show flex none"></div>
+<a href="/add" id="add">
+  <svg viewBox="0 0 16 16">
+    <path
+      d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+    />
+  </svg>
+</a>
+{% endblock body %}

@@ -1,0 +1,78 @@
+<!-----------------------------------------------------------
+-
+- Notetaker - A Simple Note Taking app created in Flask
+- Copyright(C) 2022 - 2023 Prathamesh Thorat (thoratprathamesh08@gmail.com)
+-
+- This software is provided 'as-is', without any express or implied warranty.
+- In no event will the authors be held liable for any damages arising from the use of this software.
+-
+- Permission is granted to anyone to use this software for any purpose,
+- including commercial applications, and to alter it and redistribute it freely,
+- subject to the following restrictions:
+-
+- 1. The origin of this software must not be misrepresented
+- you must not claim that you wrote the original software.
+- If you use this software in a product, an acknowledgment
+- in the product documentation would be appreciated but is not required.
+-
+- 2. Altered source versions must be plainly marked as such,
+- and must not be misrepresented as being the original software.
+-
+- 3. This notice may not be removed or altered from any source distribution.
+-
+------------------------------------------------------------->
+
+{% extends 'base.html' %} <br />
+{% block title %}Signup{% endblock title %} <br />
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/user/signup.css') }}"
+/>
+<script src="{{ url_for('static', filename='js/user/signup.js') }}"></script>
+{% endblock head %} <br />
+{% block body %}
+<form method="post" class="flex" id="form">
+  {% if error %}
+  <div class="error">{{message}}</div>
+  {% endif %}
+  <input
+    type="text"
+    name="username"
+    id="username"
+    placeholder="Username 1234"
+    title="Sutaible Username
+  - min 3 Charecters
+  - min 1 Number"
+    onblur="trim(event)"
+    required
+  />
+  <input
+    type="email"
+    name="email"
+    id="email"
+    placeholder="yourid@domain.com"
+    title="Your Existed Email Id"
+    onblur="trim(event)"
+    required
+  />
+  <input
+    type="password"
+    name="password"
+    id="password"
+    placeholder="********"
+    title="A Super Strong Password
+  - min length 8 Charecters
+  - min 1 Number
+  - min 1 small caps Charecters
+  - min 1 upper caps Charecters
+  - min 1 symbol"
+    onfocus="this.setAttribute('type','text')"
+    onblur="this.setAttribute('type','password')"
+    onblur="trim(event)"
+    required
+  />
+  <input type="submit" id="submit" value="Signup  &RightAngleBracket;" />
+  <div id="login">Already have a Account ? <a href="login">Login Here</a></div>
+</form>
+{% endblock body %}

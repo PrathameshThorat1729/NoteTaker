@@ -1,0 +1,201 @@
+/**********************************************************
+*
+* Notetaker - A Simple Note Taking app created in Flask
+* Copyright(C) 2022 - 2023 Prathamesh Thorat (thoratprathamesh08@gmail.com)
+*
+* This software is provided 'as-is', without any express or implied warranty.
+* In no event will the authors be held liable for any damages arising from the use of this software.
+*
+* Permission is granted to anyone to use this software for any purpose,
+* including commercial applications, and to alter it and redistribute it freely,
+* subject to the following restrictions:
+*
+* 1. The origin of this software must not be misrepresented
+* you must not claim that you wrote the original software.
+* If you use this software in a product, an acknowledgment
+* in the product documentation would be appreciated but is not required.
+*
+* 2. Altered source versions must be plainly marked as such,
+* and must not be misrepresented as being the original software.
+*
+* 3. This notice may not be removed or altered from any source distribution.
+*
+***********************************************************/
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#add {
+  width: 40px;
+  height: 40px;
+  background-color: var(--secondary);
+  fill: var(--primary);
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  border-radius: 25%;
+  box-shadow: 0 0 25px #000;
+  z-index: 990;
+}
+
+#add:hover {
+  background-color: var(--text);
+}
+
+.note {
+  background-color: var(--primary-h);
+  padding: 10px;
+  box-shadow: 0 0 10px #000;
+  border-radius: 10px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.note:hover {
+  transform: scale(1.05);
+}
+
+.note .title,
+.note .body {
+  font-size: 150%;
+  border-bottom: 2px solid #000;
+  padding: 10px 5px;
+  height: 10%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #e6e6e6;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+.note .body {
+  font-weight: lighter;
+  font-size: 100%;
+  white-space: normal;
+  height: 75%;
+  color: #bdbdbd;
+  border-width: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note .edit,
+.note .delete,
+.note .close {
+  --color: var(--text);
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 10px;
+  right: 10px;
+  border-radius: 25%;
+  background-color: var(--primary-h);
+  box-shadow: 0 0 5px var(--color);
+  display: none;
+}
+
+.note .delete {
+  top: auto;
+  bottom: 15px;
+  right: 15px;
+}
+
+.note .close {
+  top: auto;
+  right: auto;
+  bottom: 15px;
+  left: 15px;
+}
+
+.note div svg,
+.note a svg {
+  width: 60%;
+  height: 60%;
+  transition: 0.1s;
+  fill: var(--secondary);
+}
+
+.note div:hover svg,
+.note a:hover svg {
+  fill: var(--color);
+}
+
+.note .edit:hover {
+  --color: lightblue;
+}
+
+.note .delete:hover {
+  --color: #ff2626;
+}
+
+.note .close:hover {
+  --color: #a1ff84;
+}
+
+.note:hover .delete {
+  display: flex;
+}
+
+.show {
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 998;
+  background-color: #ffffffaa;
+  padding: var(--body-pad);
+  flex-direction: column;
+}
+
+.show .note {
+  flex-basis: 100%;
+  width: calc(100% - (var(--body-pad) * 2));
+}
+
+.show .note:hover {
+  transform: none;
+}
+
+.show .body {
+  overflow-y: auto;
+}
+
+.show .note:hover .edit,
+.show .note:hover .close {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+@media (max-width: 1500px) {
+  #container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  #container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 750px) {
+  #container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 570px) {
+  #container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
