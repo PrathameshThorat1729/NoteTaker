@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 //
 // Notetaker - A Simple Note Taking app created in Flask
-// Copyright(C) 2022 - 2023 Prathamesh Thorat (thoratprathamesh08@gmail.com)
+// Copyright(C) 2022 - 2023 Prathamesh Thorat (thoratprathamesh1729@gmail.com)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
